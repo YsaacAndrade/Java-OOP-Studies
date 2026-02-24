@@ -7,7 +7,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
- /*
+
         System.out.print("Do You want to start the game? Yes() or No()   ");
         String start = scanner.nextLine();
 
@@ -27,12 +27,12 @@ public class Main {
             System.out.print("How's much hp the char gonna have? ");
             int life = scanner.nextInt();
             System.out.println("\n");
-*/
-            Vampire player = new Vampire("vlad", 30, 10);
+
+            Vampire player = new Vampire(nome, life, damage);
             Mage enemy = new Mage("Evil Wizard", 30, 10);
 
-            //System.out.println("Your's stats are: \n" + Arrays.toString(player.showStats()) + "\n");
-            //System.out.println("The enemy stats are: \n" + Arrays.toString(enemy.showStats()));
+            System.out.println("Your's stats are: \n" + Arrays.toString(player.showStats()) + "\n");
+            System.out.println("The enemy stats are: \n" + Arrays.toString(enemy.showStats()));
 
             System.out.println("\n");
             System.out.println("The combat starts!");
