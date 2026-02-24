@@ -5,10 +5,17 @@ public class rpgChar {
     private int attack;
     private String name;
 
-    rpgChar(String name, int life, int attack) {
-        this.life = life;
-        this.attack = attack;
-        this.name = name;
+    public void setLife(int life) {
+        if (life <= 0) {
+            this.life = 0;
+        }
+        else {
+            this.life = life;
+        }
+    }
+
+    public int getLife() {
+        return this.life;
     }
 
     public ArrayList<Object> showStats() {
@@ -19,8 +26,10 @@ public class rpgChar {
         return stats;
     }
 
-    public int showLife() {
-        return this.life;
+    rpgChar(String name, int life, int attack) {
+        setLife(life);
+        this.attack = attack;
+        this.name = name;
     }
 
     public int dealDamage() {
@@ -29,7 +38,19 @@ public class rpgChar {
     }
 
     public String receiveDamage(int atk) {
-        return ("Now " + this.name + " has " + (this.life - atk) + " points of hp");
+        this.life = this.life - atk;
+        if (this.life <=  0) {
+            return (this.name + " has been killed!");
+        }
+        else {
+            return ("Now " + this.name + " has " + (this.life) + " points of hp");
+        }
     }
 
+    public int drain() {
+        this.life = life + this.attack/2;
+        System.out.println((this.name + " has attacked and dealed " + this.attack + " as damage!"));
+        System.out.println(("Vladimir has drained the blood of the enemy and has healed by " + (this.attack/2) +  "! Now he has " + this.life + " points of hp!"));
+        return this.attack;
+    }
 }
