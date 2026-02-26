@@ -12,4 +12,13 @@ public class Vampire extends RpgChar{
             return getAttack();
         }
     }
+
+    public int bite() {
+        if (!isAlive()) {
+            return 0;
+        }
+        else {
+            return getAttack() + 7;
+        }
+    }
 }

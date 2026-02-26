@@ -8,14 +8,13 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
+
         System.out.print("Do You want to start the game? Yes() or No()   ");
         String start = scanner.nextLine();
 
         if (start.equalsIgnoreCase("no")) {
             System.out.println("Game ended!");
-        }
-
-        else {
+        } else {
             System.out.println("Game begins!");
 
             System.out.print("What's gonna be the char name? ");
@@ -29,7 +28,7 @@ public class Main {
             System.out.println("\n");
 
             Vampire player = new Vampire(nome, life, damage);
-            Mage enemy = new Mage("Evil Wizard", 30, 10);
+            Mage enemy = new Mage("Evil Wizard", (player.getLife() * 2), (player.getAttack()) * 2);
 
             System.out.println("Your's stats are: \n" + Arrays.toString(player.showStats()) + "\n");
             System.out.println("The enemy stats are: \n" + Arrays.toString(enemy.showStats()));
@@ -37,13 +36,18 @@ public class Main {
             System.out.println("\n");
             System.out.println("The combat starts!");
 
-            System.out.println("\n");
             while (player.isAlive() && enemy.isAlive()) {
-                System.out.println("What you want to do?\n* Attack\n* run\n* show stats");
+                System.out.println("What you gonna do?\n* Attack\n* Run\n* Show stats\n");
                 String act = scanner.nextLine();
 
+
+                if (act.equalsIgnoreCase("show stats")) {
+                    System.out.println(Arrays.toString(player.showStats()));
+                    System.out.println(Arrays.toString(enemy.showStats()) + "\n");
+                }
+
                 if (act.equalsIgnoreCase("attack")) {
-                    System.out.println("\nWhat attack?\n* Normal Attack\n* Life drain");
+                    System.out.println("\nWhat attack?\n* Normal Attack\n* Life drain\n* bite");
                     String choiceAtk = scanner.nextLine();
 
                     if (choiceAtk.equalsIgnoreCase("life drain")) {
@@ -52,8 +56,36 @@ public class Main {
                         System.out.println(enemy.receiveDamage(player.drain()) + "\n");
 
                         if (enemy.isAlive()) {
-                            System.out.print(enemy.getName() + " used his fire ball attack!\n");
-                            System.out.print(player.receiveDamage(enemy.fireBall()) + "\n");
+                            int atkrng = random.nextInt(10);
+
+                            if (atkrng <= 5) {
+                                System.out.print(enemy.getName() + " used his fire ball attack!"+ " Dealing " + enemy.getAttack() + 5 + " as damage!");
+                                System.out.print(player.receiveDamage(enemy.fireBall()));
+                            } else {
+                                System.out.println(enemy.getName() + " used bigDrain!" + " Dealing " + enemy.getAttack() + " as damage and healing himself by " + enemy.getAttack() / 2 + "\n");
+                                System.out.println(player.receiveDamage(enemy.bigDrain()) + "\n");
+                            }
+
+                        }
+
+                    }
+                    else if (choiceAtk.equalsIgnoreCase("bite")) {
+                        System.out.println(player.getName() + " used bite on " + enemy.getName() + " dealing " + player.getAttack() + " as damage plus 7 of bleeding!");
+                        System.out.println(enemy.receiveDamage(player.bite()) + "\n");
+
+                        if (enemy.isAlive()) {
+                            int atkrng = random.nextInt(10);
+
+                            if (atkrng <= 5) {
+                                System.out.print(enemy.getName() + " used his fire ball attack!"+ " Dealing " + enemy.getAttack() + 5 + " as damage!");
+                                System.out.print(player.receiveDamage(enemy.fireBall()) + "\n");
+                            } else {
+                                System.out.println(enemy.getName() + " used bigDrain!" + " Dealing " + enemy.getAttack() + " as damage and healing himself by " + enemy.getAttack() / 2 + "\n");
+
+
+                                System.out.println(player.receiveDamage(enemy.bigDrain()) + "\n");
+                            }
+
                         }
 
                     }
@@ -62,36 +94,40 @@ public class Main {
                         System.out.print(enemy.receiveDamage(player.dealDamage()) + "\n");
 
                         if (enemy.isAlive()) {
-                            System.out.print(enemy.getName() + " used his fire ball attack!\n");
-                            System.out.println(player.receiveDamage(enemy.fireBall()) + "\n");
+
+                            int atkrng = random.nextInt(10);
+
+                            if (atkrng <= 5) {
+                                System.out.print(enemy.getName() + " used his fire ball attack!"+ " Dealing " + enemy.getAttack() + 5 + " as damage!");
+                                System.out.print(player.receiveDamage(enemy.fireBall()) + "\n");
+                            } else {
+                                System.out.println(enemy.getName() + " used bigDrain!" + " Dealing " + enemy.getAttack() + " as damage and healing himself by " + enemy.getAttack() / 2 + "\n");
+
+                                System.out.println(player.receiveDamage(enemy.bigDrain()) + "\n");
+                            }
                         }
 
-                    }
-                }
 
-                else if (act.equalsIgnoreCase("run")) {
+                    }
+                } else if (act.equalsIgnoreCase("run")) {
                     int runs = random.nextInt(10);
 
                     if (runs < 5) {
                         System.out.println("\nYou run away with success!");
                         break;
-                    }
-                    else {
+                    } else {
                         System.out.println("\nYou cant run away from this combat!");
                     }
-                }
-
-                else if (act.equalsIgnoreCase("show stats\n")) {
+                } else if (act.equalsIgnoreCase("show stats\n")) {
                     System.out.println(Arrays.toString(player.showStats()));
                     System.out.println(Arrays.toString(enemy.showStats()) + "\n");
                 }
             }
             if (!player.isAlive()) {
                 System.out.println(enemy.getName() + " won!");
-            }
-
-            else if (!enemy.isAlive()) {
+            } else if (!enemy.isAlive()) {
                 System.out.println(player.getName() + " won!");
             }
         }
     }
+}

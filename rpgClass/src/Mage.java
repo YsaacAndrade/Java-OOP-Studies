@@ -7,7 +7,17 @@ public class Mage extends RpgChar{
         if (getAttack() > 0 && !isAlive()) {
             return 0;
         } else {
-            return getAttack();
+            return getAttack() + 5;
+        }
+    }
+
+    public int bigDrain() {
+        if (!isAlive()) {
+            return 0;
+        }
+        else {
+            receiveHeal(getAttack());
+            return getAttack() / 2;
         }
     }
 }

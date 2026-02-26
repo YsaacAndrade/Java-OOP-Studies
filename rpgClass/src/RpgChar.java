@@ -96,5 +96,4 @@ public class RpgChar {
             this.life += quantity;
         }
     }
-
 }
