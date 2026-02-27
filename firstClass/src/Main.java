@@ -10,3 +10,5 @@ public class Main {
         System.out.println(ysaac.getBalance());
     }
 }
+
+// claro, I HATE YOU SO MUCH
