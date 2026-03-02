@@ -97,3 +97,5 @@ public class RpgChar {
         }
     }
 }
+
+// I HATE BOLETOS

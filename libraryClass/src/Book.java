@@ -20,6 +20,4 @@ public class Book {
             System.out.println("Book name: " + i.title + " | Author: " + i.author + " | Is available: " + i.isAvailable);
         }
     }
-
-
 }
