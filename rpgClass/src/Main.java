@@ -22,10 +22,11 @@ public class Main {
 
             System.out.print("How's much damage the char gonna cause? ");
             int damage = scanner.nextInt();
+            scanner.nextLine();
 
             System.out.print("How's much hp the char gonna have? ");
             int life = scanner.nextInt();
-            System.out.println("\n");
+            scanner.nextLine();
 
             Vampire player = new Vampire(nome, life, damage);
             Mage enemy = new Mage("Evil Wizard", (player.getLife() * 2), (player.getAttack()) * 2);
