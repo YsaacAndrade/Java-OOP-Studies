@@ -54,6 +54,7 @@ public class TutorialMod
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(Moditems.HEMOLITE);
             event.accept(Moditems.LANACOVER);
+            event.accept(Moditems.SZA);
         }
     }
 

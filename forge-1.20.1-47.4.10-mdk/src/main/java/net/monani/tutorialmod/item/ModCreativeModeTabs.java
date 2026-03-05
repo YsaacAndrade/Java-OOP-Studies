@@ -19,7 +19,7 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, pOutput) -> {
                         pOutput.accept(Moditems.LANACOVER.get());
                         pOutput.accept(Moditems.HEMOLITE.get());
-                        pOutput.accept(Items.LAVA_BUCKET);
+                        pOutput.accept(Moditems.SZA.get());
                     })
                     .build());
 

@@ -15,6 +15,8 @@ public class Moditems {
 
     public static final RegistryObject<Item> LANACOVER = ITEMS.register("lanacover", () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> SZA = ITEMS.register("sza", () -> new Item(new Item.Properties()));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
