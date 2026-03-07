@@ -23,7 +23,7 @@ public class RpgChar {
 
     private void setName(String name) {
         if (name.isBlank()) {
-            this.name = "Player";
+            this.name = "Player 1";
         }
         else {
             this.name = name;

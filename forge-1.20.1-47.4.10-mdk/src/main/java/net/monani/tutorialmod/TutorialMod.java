@@ -1,7 +1,9 @@
 package net.monani.tutorialmod;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.CreativeModeTabRegistry;
 import net.minecraftforge.common.MinecraftForge;
@@ -14,6 +16,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.monani.tutorialmod.block.ModBlocks;
 import net.monani.tutorialmod.item.ModCreativeModeTabs;
 import net.monani.tutorialmod.item.Moditems;
 import org.slf4j.Logger;
@@ -37,6 +40,8 @@ public class TutorialMod
 
         Moditems.register(modEventBus);
 
+        ModBlocks.Register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -54,7 +59,7 @@ public class TutorialMod
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(Moditems.HEMOLITE);
             event.accept(Moditems.LANACOVER);
-            event.accept(Moditems.SZA);
+            event.accept(Moditems.JAAJ);
         }
     }
 

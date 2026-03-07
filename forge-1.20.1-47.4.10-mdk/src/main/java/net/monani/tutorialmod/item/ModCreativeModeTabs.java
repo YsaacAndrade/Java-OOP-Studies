@@ -9,6 +9,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.monani.tutorialmod.TutorialMod;
+import net.monani.tutorialmod.block.ModBlocks;
 
 public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABs = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TutorialMod.MOD_ID);
@@ -19,9 +20,9 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, pOutput) -> {
                         pOutput.accept(Moditems.LANACOVER.get());
                         pOutput.accept(Moditems.HEMOLITE.get());
-                        pOutput.accept(Moditems.SZA.get());
-                    })
-                    .build());
+                        pOutput.accept(Moditems.JAAJ.get());
+                        pOutput.accept(ModBlocks.HEMOLITE_BLOCK.get());
+                    }).build());
 
     public static void register(IEventBus eventBus) {
         CREATIVE_MODE_TABs.register(eventBus);
