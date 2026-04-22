@@ -2,12 +2,10 @@ import java.sql.*;
 
 public class DbConnection {
 
-
     private static Statement Helper() throws SQLException {
         Connection connection = DriverManager.getConnection("jdbc:mysql://MYSQL_URL/SCHEMA_NAME", "root", "Password");
         return connection.createStatement();
     }
-
 
     public static void addUser(String name, String password) throws SQLException {
         Statement statement = Helper();
@@ -21,7 +19,6 @@ public class DbConnection {
         }
     }
 
-
     public static void removeUser(String name) throws SQLException {
         Statement statement = Helper();
         int rowUpdateRemove = statement.executeUpdate("DELETE FROM users WHERE username = '" + name + "'");
@@ -32,7 +29,6 @@ public class DbConnection {
             System.out.println("User removed with success!");
         }
     }
-
 
     public static void seeUsers() throws SQLException {
         Statement statement = Helper();
