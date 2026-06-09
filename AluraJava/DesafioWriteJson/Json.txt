@@ -1,3 +1,5 @@
-bara bara bara
-bere bere bere
-exit
+{
+"name" : "ysaac",
+"age" : "19",
+"city" : "sjbv"
+}
