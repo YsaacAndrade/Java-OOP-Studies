@@ -1,5 +1,0 @@
-{
-"name" : "ysaac",
-"age" : "19",
-"city" : "sjbv"
-}
