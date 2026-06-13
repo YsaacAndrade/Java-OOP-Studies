@@ -1,6 +1,5 @@
 package ByHand;
-
-import WithGson.CreatePerson;
+import Model.CreatePerson;
 
 import java.io.File;
 import java.io.FileWriter;

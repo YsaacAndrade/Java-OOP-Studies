@@ -1,4 +1,4 @@
-package WithGson;
+package Model;
 
 public class CreatePerson {
     private final String name;
