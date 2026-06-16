@@ -28,4 +28,8 @@ public class Movie extends Details {
     public String toString() {
         return "Title: " + title + "\nRuntime: " + runtime + "\nYear: " + year;
     }
+
+    public String getTitle() {
+        return title;
+    }
 }

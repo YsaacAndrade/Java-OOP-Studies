@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Series extends Details{
     private String title;
     private String year;
-    private String seasons;
+    private int seasons;
 
     @JsonAlias("Title")
     public void setTitle(String title) {
@@ -20,13 +20,13 @@ public class Series extends Details{
     }
 
     @JsonAlias("totalSeasons")
-    public void setSeasons(String seasons) {
+    public void setSeasons(int seasons) {
         this.seasons = seasons;
     }
-
 
     @Override
     public String toString() {
         return "Title: " + title + "\nSeasons: " + seasons + "\nYear: " + year;
     }
+
 }
