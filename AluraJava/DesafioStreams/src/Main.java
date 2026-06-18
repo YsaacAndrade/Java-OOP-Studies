@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -63,9 +64,9 @@ public class Main {
         for (Product product : newProductList) {
             System.out.println(product.getName());
         }
-        List<Product> cheapsProducts = products.stream().sorted(Comparator.comparing(Product::getPrice))
+        List<Product> cheapProducts = products.stream().sorted(Comparator.comparing(Product::getPrice))
                 .limit(3).toList();
-        for (Product product : cheapsProducts) {
+        for (Product product : cheapProducts) {
             System.out.println(product.getName());
         }
     }
